@@ -28,7 +28,7 @@ namespace the_api.Controllers
           {
               return NotFound();
           }
-            return await _context.Departments.ToListAsync();
+            return await _context.Departments.Include("People").ToListAsync();
         }
 
         // GET: api/Departments/5

@@ -92,6 +92,8 @@ namespace the_api.Controllers
             _context.People.Add(person);
             await _context.SaveChangesAsync();
 
+            person.Department = await _context.Departments.FindAsync(person.DepartmentId);
+
             return CreatedAtAction("GetPerson", new { id = person.Id }, person);
         }
 
